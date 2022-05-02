@@ -1,0 +1,31 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <a href="/generos/novo" class="btn btn-primary">Novo Gênero</a>
+    <br>
+    <div class="card">
+        <div class="card-header">Gêneros Cadastrados</div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <th>Genero</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody>
+                    <% generos.forEach(genero => { %>
+                        <tr >
+                            <td><%= genero.genero %></td>
+                            <td>
+                                <a href="../generos/editar/<%= genero.id %>" class="btn btn-primary">Editar</a>
+                                <a href="../generos/excluir/<%= genero.id %>" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

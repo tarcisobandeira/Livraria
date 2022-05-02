@@ -1,0 +1,22 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">Novo Gênero</div>
+        <div class="card-body">
+            <form method="POST" action="/generos/salvar">
+                <div class="form-floating mb-3">
+                    <input type="text" name="genero" class="form-control" id="genero" placeholder="Nome do gênero" required>
+                    <label for="genero">Nome do Gênero</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="/generos" class="btn btn-warning">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
