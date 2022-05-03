@@ -1,0 +1,22 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">Nova Editora</div>
+        <div class="card-body">
+            <form method="POST" action="/editoras/salvar">
+                <div class="form-floating mb-3">
+                    <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome da editora" required>
+                    <label for="nome">Nome do Editora</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="/editoras" class="btn btn-warning">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

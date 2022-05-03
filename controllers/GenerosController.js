@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Generos = require('../models/generos');
-const bcrypt = require('bcryptjs');
 
+// metodo para achar todos os itens da tabela e ir para a página com os itens já carregados
 router.get('/generos', (req, res) => {
     Generos.findAll({
         order:[
@@ -13,10 +13,12 @@ router.get('/generos', (req, res) => {
     })
 });
 
-router.get('/generos/novo', (req, res) =>{
+// metodo para ir até uma página
+router.get('/generos/novo', (req, res) => {
     res.render('generos/novo');
 });
 
+// metodo para salvar no banco
 router.post('/generos/salvar', (req, res) => {
     var genero = req.body.genero;
 
@@ -37,14 +39,17 @@ router.post('/generos/salvar', (req, res) => {
     })
 });
 
-router.get('/generos/editar/:id', (req, res) =>{
+// metodo para trazer o item com o id expecifico
+router.get('/generos/editar/:id', (req, res) => {
     var id = req.params.id;
+    
     Generos.findByPk(id).then(genero => {
         res.render('generos/editar', {genero: genero});
     });
 });
 
-router.post('/generos/alterar', (req, res) =>{
+// metodo para alterar
+router.post('/generos/alterar', (req, res) => {
     var id = req.body.id;
     var genero = req.body.genero;
 
@@ -59,6 +64,7 @@ router.post('/generos/alterar', (req, res) =>{
     });
 });
 
+// metodo para excluir
 router.get('/generos/excluir/:id', (req, res) => {
     var id = req.params.id;
 
@@ -71,4 +77,5 @@ router.get('/generos/excluir/:id', (req, res) => {
     });
 });
 
+// qualquer arquivo para controle termina com isso
 module.exports = router;

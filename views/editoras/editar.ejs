@@ -1,0 +1,23 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">Editar Editora</div>
+        <div class="card-body">
+            <form method="POST" action="/editoras/alterar">
+                <input type="hidden" name="id" value="<%= editora.id %>">
+                <div class="form-floating mb-3">
+                    <input type="text" name="nome" value="<%= editora.nome %>" class="form-control" id="nome" placeholder="Nome da editora" required>
+                    <label for="nome">Nome da Editora</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <button type="submit" class="btn btn-primary">Alterar</button>
+                    <a href="/editoras" class="btn btn-warning">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

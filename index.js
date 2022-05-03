@@ -33,6 +33,7 @@ const Livro = require('./models/livros');
 // Controller
 const UsuariosController = require('./controllers/UsuariosController');
 const GenerosController = require('./controllers/GenerosController');
+const EditorasController = require('./controllers/EditorasController');
 
 // Rotas
 app.get('/', (req, res) => {
@@ -42,6 +43,7 @@ app.get('/', (req, res) => {
 // Rotas externas
 app.use('/', UsuariosController);
 app.use('/', GenerosController);
+app.use('/', EditorasController);
 
 app.listen(8080, () => {
     console.log('O servidor está ativo');
