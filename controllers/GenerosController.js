@@ -37,4 +37,38 @@ router.post('/generos/salvar', (req, res) => {
     })
 });
 
+router.get('/generos/editar/:id', (req, res) =>{
+    var id = req.params.id;
+    Generos.findByPk(id).then(genero => {
+        res.render('generos/editar', {genero: genero});
+    });
+});
+
+router.post('/generos/alterar', (req, res) =>{
+    var id = req.body.id;
+    var genero = req.body.genero;
+
+    Generos.update({
+        genero: genero
+    },{
+        where: {
+            id: id
+        }
+    }).then(() => {
+        res.redirect('/generos');
+    });
+});
+
+router.get('/generos/excluir/:id', (req, res) => {
+    var id = req.params.id;
+
+    Generos.destroy({
+        where: {
+            id: id
+        }
+    }).then(() => {
+        res.redirect('/generos');
+    });
+});
+
 module.exports = router;
